@@ -8,16 +8,13 @@ from fastapi import FastAPI, HTTPException, Depends, Query
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from typing import List
-from fastapi.encoders import jsonable_encoder
 
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from jose import JWTError, jwt
 from datetime import datetime, timedelta
-from crud import get_user, create_user, verify_password
+
 
 from database import engine, session_local, get_db
-from models import Base, Note, Todo
-from schemas import NoteResponse, NoteCreate, NoteWithMessage, TodoCreate, TodoResponse, TodoWithMessage, UserCreate, Token, WelcomeMessage
+from models import Base, Todo
+from schemas import TodoCreate, TodoResponse, TodoWithMessage
 
 
 app = FastAPI()
@@ -87,5 +84,6 @@ def toggle_todo_complete(todo_id: int, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(db_todo)
     return db_todo
+
 
 

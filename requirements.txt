@@ -1,0 +1,23 @@
+# --- FastAPI and Uvicorn ---
+fastapi==0.115.2
+uvicorn==0.32.0
+
+# --- Database ---
+SQLAlchemy==2.0.25
+
+# --- Pydantic and Settings ---
+pydantic==2.6.4
+pydantic-settings==2.2.1
+
+# --- JSON Encoding ---
+orjson==3.10.1
+
+# --- CORS Middleware ---
+starlette==0.37.2
+
+# --- (Optional) for future JWT/Auth ---
+python-jose==3.3.0
+passlib[bcrypt]==1.7.4
+
+# --- (Optional) for .env file support ---
+python-dotenv==1.0.1
